@@ -209,4 +209,24 @@ export const channels: Channel[] = [
     ],
     description: 'Khmer TV International'
   },
+  {
+    id: 'mnb-world',
+    name: 'MNB World',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/MNB_World_logo.png/200px-MNB_World_logo.png',
+    category: 'news',
+    streams: [
+      'https://cdn4.skygo.mn/live/disk1/MNB_World/HLSv3-FTA/MNB_World.m3u8',
+    ],
+    description: 'Mongolian National Broadcaster World'
+  },
+  {
+    id: 'rtm-asean',
+    name: 'RTM ASEAN',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/RTM_ASEAN.png/200px-RTM_ASEAN.png',
+    category: 'news',
+    streams: [
+      'https://d25tgymtnqzu8s.cloudfront.net/event/smil:event1/chunklist_b2596000_slENG.m3u8',
+    ],
+    description: 'Radio Television Malaysia ASEAN'
+  },
 ];
