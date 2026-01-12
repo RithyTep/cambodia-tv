@@ -110,22 +110,21 @@ function Remote() {
           </div>
         </header>
 
-        {/* Channel List */}
-        <div className="channel-list" ref={channelListRef}>
+        {/* Channel Grid */}
+        <div className="channel-grid" ref={channelListRef}>
           {channels.map((channel, index) => (
             <div
               key={channel.id}
-              className={`channel-item ${index === focusedIndex ? 'focused' : ''}`}
+              className={`channel-logo ${index === focusedIndex ? 'focused' : ''}`}
               onClick={() => selectChannel(index)}
             >
               <img
                 src={channel.logo}
                 alt={channel.name}
                 onError={(e) => {
-                  (e.target as HTMLImageElement).src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect fill="%23333" width="40" height="40" rx="4"/><text x="20" y="24" text-anchor="middle" fill="%23666" font-size="10">TV</text></svg>';
+                  (e.target as HTMLImageElement).src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><rect fill="%23222" width="40" height="40" rx="6"/><text x="20" y="24" text-anchor="middle" fill="%23555" font-size="8">TV</text></svg>';
                 }}
               />
-              <span>{channel.name}</span>
             </div>
           ))}
         </div>
