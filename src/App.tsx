@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import Hls from 'hls.js';
 import { QRCodeSVG } from 'qrcode.react';
-import { Play, X, Volume2, VolumeX, Maximize, Minimize, Tv, Search, Loader2, AlertCircle, Smartphone, PictureInPicture2, Info } from 'lucide-react';
+import { Play, X, Volume2, VolumeX, Maximize, Minimize, Tv, Search, Loader2, AlertCircle, Smartphone, PictureInPicture2 } from 'lucide-react';
 import { channels, type Channel } from './channels';
 import './App.css';
 
@@ -54,36 +54,6 @@ function QRRemoteModal({ onClose, remoteUrl }: { onClose: () => void; remoteUrl:
           />
           <p className="qr-instruction">Scan with your phone to control TV</p>
           <div className="qr-url">{remoteUrl}</div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Channel Info Panel Component
-function ChannelInfoPanel({ channel, onClose }: { channel: Channel; onClose: () => void }) {
-  return (
-    <div className="info-overlay" onClick={onClose}>
-      <div className="info-panel" onClick={(e) => e.stopPropagation()}>
-        <div className="info-header">
-          <h2>Channel Info</h2>
-          <button className="close-btn" onClick={onClose}>
-            <X size={24} />
-          </button>
-        </div>
-        <div className="info-content">
-          <div className="info-logo">
-            <img src={channel.logo} alt={channel.name} />
-          </div>
-          <h3 className="info-name">{channel.name}</h3>
-          <p className="info-category">{channel.category}</p>
-          {channel.description && (
-            <p className="info-description">{channel.description}</p>
-          )}
-          <div className="info-streams">
-            <h4>Available Streams</h4>
-            <span className="stream-badge">{channel.streams.length} stream{channel.streams.length > 1 ? 's' : ''}</span>
-          </div>
         </div>
       </div>
     </div>
@@ -338,10 +308,9 @@ function VideoPlayer({ channel, onClose }: { channel: Channel; onClose: () => vo
   );
 }
 
-function ChannelCard({ channel, onSelect, onInfo, isSelected }: {
+function ChannelCard({ channel, onSelect, isSelected }: {
   channel: Channel;
   onSelect: () => void;
-  onInfo: () => void;
   isSelected: boolean;
 }) {
   return (
@@ -351,37 +320,16 @@ function ChannelCard({ channel, onSelect, onInfo, isSelected }: {
       tabIndex={0}
       onKeyDown={(e) => e.key === 'Enter' && onSelect()}
     >
-      <div className="card-glow" />
-      <div className="card-content">
-        <div className="logo-container">
-          <img
-            src={channel.logo}
-            alt={channel.name}
-            className="channel-logo"
-            onError={(e) => {
-              (e.target as HTMLImageElement).src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="%23333" width="100" height="100"/><text x="50" y="55" text-anchor="middle" fill="%23fff" font-size="40">TV</text></svg>';
-            }}
-          />
-        </div>
-        <div className="channel-details">
-          <h3 className="channel-name">{channel.name}</h3>
-          <span className="channel-category">{channel.description || channel.category}</span>
-        </div>
-        <div className="play-overlay">
-          <Play size={32} />
-        </div>
+      <div className="card-logo">
+        <img
+          src={channel.logo}
+          alt={channel.name}
+          onError={(e) => {
+            (e.target as HTMLImageElement).src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="%23222" width="100" height="100" rx="8"/><text x="50" y="58" text-anchor="middle" fill="%23666" font-size="14" font-family="system-ui">TV</text></svg>';
+          }}
+        />
       </div>
-      <button
-        className="info-btn"
-        onClick={(e) => {
-          e.stopPropagation();
-          onInfo();
-        }}
-        aria-label="Channel info"
-      >
-        <Info size={16} />
-      </button>
-      <div className="live-badge">LIVE</div>
+      <span className="card-name">{channel.name}</span>
     </div>
   );
 }
@@ -391,8 +339,7 @@ function App() {
     const [searchQuery, setSearchQuery] = useState('');
   const [focusedIndex, setFocusedIndex] = useState(0);
   const [showQRRemote, setShowQRRemote] = useState(false);
-  const [infoChannel, setInfoChannel] = useState<Channel | null>(null);
-  const wsRef = useRef<WebSocket | null>(null);
+    const wsRef = useRef<WebSocket | null>(null);
 
   // Remote URL for QR code
   const remoteUrl = `${window.location.origin}/remote`;
@@ -563,7 +510,6 @@ function App() {
               channel={channel}
               isSelected={index === focusedIndex}
               onSelect={() => setSelectedChannel(channel)}
-              onInfo={() => setInfoChannel(channel)}
             />
           ))}
         </div>
@@ -593,13 +539,6 @@ function App() {
         />
       )}
 
-      {/* Channel Info Panel */}
-      {infoChannel && (
-        <ChannelInfoPanel
-          channel={infoChannel}
-          onClose={() => setInfoChannel(null)}
-        />
-      )}
     </div>
   );
 }
