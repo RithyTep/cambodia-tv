@@ -12,11 +12,12 @@ const getStreamUrl = (url: string): string => {
 
   // If HTTPS page trying to load HTTP stream, use proxy
   if (isHttpsPage && isHttpStream) {
-    // In production, proxy is on same origin; in dev it's on port 3002
+    // In production (Vercel), use /api/proxy; in dev use port 3002
+    const proxyPath = import.meta.env.PROD ? '/api/proxy' : '/proxy';
     const proxyBase = import.meta.env.PROD
-      ? `${window.location.origin}`
-      : `http://${window.location.hostname}:3002`;
-    return `${proxyBase}/proxy?url=${encodeURIComponent(url)}`;
+      ? `${window.location.origin}${proxyPath}`
+      : `http://${window.location.hostname}:3002${proxyPath}`;
+    return `${proxyBase}?url=${encodeURIComponent(url)}`;
   }
 
   return url;
