@@ -7,7 +7,7 @@ export interface Channel {
   description?: string;
 }
 
-// Khmer TV Channels - Working streams only
+// Khmer TV Channels - Working streams only (tested)
 export const channels: Channel[] = [
   // ========== NEWS ==========
   {
@@ -74,6 +74,16 @@ export const channels: Channel[] = [
     description: 'South East Asia TV'
   },
   {
+    id: 'tv5',
+    name: 'TV5',
+    logo: 'https://static.wikia.nocookie.net/logopedia/images/3/34/TV5KhmerLogo.svg',
+    category: 'entertainment',
+    streams: [
+      'http://live.happywatch99.com/livehd14/77bbe9df6a93cf229cd40f1400af00fa.sdp/playlist.m3u8',
+    ],
+    description: 'TV5 Cambodia'
+  },
+  {
     id: 'apsara-tv',
     name: 'Apsara TV',
     logo: 'https://static.wikia.nocookie.net/logopedia/images/e/ef/Apsaratvfirstlogo.png',
@@ -125,6 +135,56 @@ export const channels: Channel[] = [
       'http://clive.malisresidences.com:1935/rhm_hdtv/_definst_/smil:RHMHDTV.smil/playlist.m3u8',
     ],
     description: 'Rasmey Hang Meas Music'
+  },
+  {
+    id: 'hm-cine',
+    name: 'HM Cine',
+    logo: 'https://static.wikia.nocookie.net/logopedia/images/e/e9/HangMeasTV2013.svg',
+    category: 'music',
+    streams: [
+      'http://clive.malisresidences.com:1935/hmcine/_definst_/smil:hmcine.smil/playlist.m3u8',
+    ],
+    description: 'Hang Meas Cinema'
+  },
+  {
+    id: 'hm-go',
+    name: 'HM Go',
+    logo: 'https://static.wikia.nocookie.net/logopedia/images/e/e9/HangMeasTV2013.svg',
+    category: 'music',
+    streams: [
+      'http://clive.malisresidences.com:1935/hmgo/_definst_/smil:hmgo.smil/playlist.m3u8',
+    ],
+    description: 'Hang Meas Go'
+  },
+  {
+    id: 'hm-now',
+    name: 'HM Now',
+    logo: 'https://static.wikia.nocookie.net/logopedia/images/e/e9/HangMeasTV2013.svg',
+    category: 'music',
+    streams: [
+      'http://clive.malisresidences.com:1935/hmnow/_definst_/smil:hmnow.smil/playlist.m3u8',
+    ],
+    description: 'Hang Meas Now'
+  },
+  {
+    id: 'hm-play',
+    name: 'HM Play',
+    logo: 'https://static.wikia.nocookie.net/logopedia/images/e/e9/HangMeasTV2013.svg',
+    category: 'music',
+    streams: [
+      'http://clive.malisresidences.com:1935/hmplay/_definst_/smil:hmplay.smil/playlist.m3u8',
+    ],
+    description: 'Hang Meas Play'
+  },
+  {
+    id: 'town-tv',
+    name: 'Town TV',
+    logo: 'https://img-evg4.tv360.metfone.com.kh/vtc-image/2024/11/18/11/1731904787957/c312928b2c77_480_270.jpg',
+    category: 'music',
+    streams: [
+      'http://43.252.18.195:5080/live/streams/Town_khmer_etv.playlist.m3u8',
+    ],
+    description: 'Town Music & Entertainment'
   },
 
   // ========== LIFESTYLE ==========
