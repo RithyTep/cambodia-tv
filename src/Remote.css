@@ -1,230 +1,265 @@
-/* Remote Control Styles */
-.remote-container {
+/* Premium Remote Control UI */
+* {
+  box-sizing: border-box;
+}
+
+.remote-app {
   min-height: 100vh;
-  background: linear-gradient(180deg, #1a1a2e 0%, #0f0f1a 100%);
+  min-height: 100dvh;
+  background: #000;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+  position: relative;
+  overflow: hidden;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
-.remote-device {
+/* Ambient Background */
+.remote-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.bg-gradient {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.4;
+}
+
+.bg-1 {
+  width: 300px;
+  height: 300px;
+  background: linear-gradient(135deg, #e21a1a, #ff6b35);
+  top: -100px;
+  right: -100px;
+  animation: float1 8s ease-in-out infinite;
+}
+
+.bg-2 {
+  width: 250px;
+  height: 250px;
+  background: linear-gradient(135deg, #1a56e2, #6b35ff);
+  bottom: -80px;
+  left: -80px;
+  animation: float2 10s ease-in-out infinite;
+}
+
+@keyframes float1 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-30px, 30px) scale(1.1); }
+}
+
+@keyframes float2 {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(30px, -30px) scale(1.1); }
+}
+
+/* Main Wrapper */
+.remote-wrapper {
   width: 100%;
-  max-width: 320px;
-  background: linear-gradient(145deg, #252540 0%, #1a1a30 100%);
-  border-radius: 40px;
-  padding: 30px 20px 40px;
-  box-shadow:
-    0 25px 50px rgba(0, 0, 0, 0.5),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  max-width: 340px;
+  position: relative;
+  z-index: 1;
 }
 
+/* Header */
 .remote-header {
-  text-align: center;
-  margin-bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 32px;
+  padding: 0 4px;
 }
 
-.remote-header h1 {
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   color: #fff;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 600;
-  margin-bottom: 8px;
+  letter-spacing: -0.3px;
 }
 
-.connection-status {
+.logo-icon {
+  width: 28px;
+  height: 28px;
+  color: #e21a1a;
+}
+
+.status-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
   font-size: 12px;
-  color: #888;
-  padding: 4px 12px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.05);
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
-.connection-status.connected {
+.status-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.status-pill.online {
   color: #4ade80;
   background: rgba(74, 222, 128, 0.1);
+  border-color: rgba(74, 222, 128, 0.2);
 }
 
-.remote-note {
-  text-align: center;
-  font-size: 12px;
-  color: #666;
-  margin-bottom: 20px;
+.status-pill.online .status-dot {
+  background: #4ade80;
+  box-shadow: 0 0 8px rgba(74, 222, 128, 0.6);
 }
 
-/* D-Pad */
-.dpad-container {
+/* Remote Body */
+.remote-body {
+  background: linear-gradient(180deg, #1a1a1f 0%, #111114 100%);
+  border-radius: 32px;
+  padding: 32px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.03) inset,
+    0 30px 60px -10px rgba(0, 0, 0, 0.7),
+    0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Touchpad / D-Pad */
+.touchpad {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
   gap: 8px;
-  width: 200px;
-  height: 200px;
-  margin: 0 auto 30px;
+  width: 100%;
+  aspect-ratio: 1;
+  max-width: 260px;
+  margin: 0 auto 28px;
 }
 
-.dpad-btn {
-  background: linear-gradient(145deg, #2a2a45 0%, #1e1e35 100%);
-  border: none;
-  border-radius: 12px;
-  color: #fff;
+.nav-btn {
+  background: linear-gradient(180deg, #2a2a30 0%, #222228 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  color: rgba(255, 255, 255, 0.8);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all 0.15s ease;
-  box-shadow:
-    0 4px 8px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: all 0.12s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.dpad-btn:active {
-  transform: scale(0.95);
-  background: linear-gradient(145deg, #1e1e35 0%, #2a2a45 100%);
+.nav-btn svg {
+  width: 32px;
+  height: 32px;
 }
 
-.dpad-up {
+.nav-btn:active,
+.nav-btn.active {
+  transform: scale(0.94);
+  background: linear-gradient(180deg, #333338 0%, #2a2a30 100%);
+}
+
+.nav-up { grid-column: 2; grid-row: 1; }
+.nav-left { grid-column: 1; grid-row: 2; }
+.nav-right { grid-column: 3; grid-row: 2; }
+.nav-down { grid-column: 2; grid-row: 3; }
+
+.nav-center {
   grid-column: 2;
-  grid-row: 1;
-}
-
-.dpad-left {
-  grid-column: 1;
   grid-row: 2;
-}
-
-.dpad-center {
-  grid-column: 2;
-  grid-row: 2;
-  background: linear-gradient(145deg, #3b82f6 0%, #2563eb 100%);
-  font-weight: 600;
+  background: linear-gradient(180deg, #e21a1a 0%, #b8141a 100%);
+  border: none;
   font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #fff;
   box-shadow:
-    0 4px 12px rgba(59, 130, 246, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    0 4px 20px rgba(226, 26, 26, 0.4),
+    0 0 0 1px rgba(255, 255, 255, 0.1) inset;
 }
 
-.dpad-center:active {
-  background: linear-gradient(145deg, #2563eb 0%, #3b82f6 100%);
+.nav-center:active,
+.nav-center.active {
+  background: linear-gradient(180deg, #c41818 0%, #a01214 100%);
+  transform: scale(0.94);
 }
 
-.dpad-right {
-  grid-column: 3;
-  grid-row: 2;
-}
-
-.dpad-down {
-  grid-column: 2;
-  grid-row: 3;
-}
-
-/* Action Buttons */
-.action-buttons {
+/* Bottom Controls */
+.bottom-controls {
   display: flex;
   gap: 12px;
-  justify-content: center;
-  margin-bottom: 24px;
 }
 
-.action-btn {
+.ctrl-btn {
   flex: 1;
-  max-width: 120px;
-  padding: 14px 16px;
-  background: linear-gradient(145deg, #2a2a45 0%, #1e1e35 100%);
-  border: none;
-  border-radius: 12px;
-  color: #fff;
-  font-size: 14px;
-  font-weight: 500;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 6px;
+  padding: 16px;
+  background: linear-gradient(180deg, #2a2a30 0%, #222228 100%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 12px;
+  font-weight: 500;
   cursor: pointer;
-  transition: all 0.15s ease;
-  box-shadow:
-    0 4px 8px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: all 0.12s ease;
+  -webkit-tap-highlight-color: transparent;
 }
 
-.action-btn:active {
-  transform: scale(0.95);
-}
-
-.back-btn {
-  color: #f97316;
-}
-
-/* Media Controls */
-.media-controls {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  align-items: center;
-}
-
-.media-btn {
-  width: 56px;
-  height: 56px;
-  background: linear-gradient(145deg, #2a2a45 0%, #1e1e35 100%);
-  border: none;
-  border-radius: 50%;
+.ctrl-btn:active,
+.ctrl-btn.active {
+  transform: scale(0.96);
+  background: linear-gradient(180deg, #333338 0%, #2a2a30 100%);
   color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.15s ease;
-  box-shadow:
-    0 4px 8px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
-.media-btn:active {
-  transform: scale(0.95);
+/* Footer */
+.remote-footer {
+  margin-top: 24px;
+  text-align: center;
 }
 
-.play-btn {
-  width: 70px;
-  height: 70px;
-  background: linear-gradient(145deg, #e2101a 0%, #b30d15 100%);
-  box-shadow:
-    0 4px 12px rgba(226, 16, 26, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+.remote-footer p {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.3);
+  margin: 0;
 }
 
-.play-btn:active {
-  background: linear-gradient(145deg, #b30d15 0%, #e2101a 100%);
+/* Responsive */
+@media (max-width: 360px) {
+  .remote-wrapper {
+    max-width: 300px;
+  }
+
+  .touchpad {
+    max-width: 220px;
+  }
+
+  .nav-btn svg {
+    width: 26px;
+    height: 26px;
+  }
 }
 
-/* Command Feedback */
-.command-feedback {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: rgba(0, 0, 0, 0.8);
-  color: #fff;
-  padding: 16px 32px;
-  border-radius: 12px;
-  font-size: 18px;
-  font-weight: 600;
-  pointer-events: none;
-  animation: fadeInOut 0.5s ease;
-}
-
-@keyframes fadeInOut {
-  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
-  30% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
-  70% { opacity: 1; }
-  100% { opacity: 0; }
-}
-
-/* Touch optimization */
-@media (hover: none) {
-  .dpad-btn:hover,
-  .action-btn:hover,
-  .media-btn:hover {
-    background: inherit;
+/* Safe area for notched phones */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .remote-app {
+    padding-bottom: calc(20px + env(safe-area-inset-bottom));
   }
 }

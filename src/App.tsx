@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import Hls from 'hls.js';
 import { QRCodeSVG } from 'qrcode.react';
 import { Play, X, Volume2, VolumeX, Maximize, Minimize, Tv, Search, Loader2, AlertCircle, Smartphone, PictureInPicture2, Info } from 'lucide-react';
-import { channels, categories, type Channel } from './channels';
+import { channels, type Channel } from './channels';
 import './App.css';
 
 // Get proxied URL for streams - proxy ALL external streams in production to avoid CORS
@@ -388,8 +388,7 @@ function ChannelCard({ channel, onSelect, onInfo, isSelected }: {
 
 function App() {
   const [selectedChannel, setSelectedChannel] = useState<Channel | null>(null);
-  const [activeCategory, setActiveCategory] = useState('all');
-  const [searchQuery, setSearchQuery] = useState('');
+    const [searchQuery, setSearchQuery] = useState('');
   const [focusedIndex, setFocusedIndex] = useState(0);
   const [showQRRemote, setShowQRRemote] = useState(false);
   const [infoChannel, setInfoChannel] = useState<Channel | null>(null);
@@ -408,10 +407,9 @@ function App() {
   };
 
   const filteredChannels = channels.filter(channel => {
-    const matchesCategory = activeCategory === 'all' || channel.category === activeCategory;
     const matchesSearch = channel.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
                          (channel.description && channel.description.toLowerCase().includes(searchQuery.toLowerCase()));
-    return matchesCategory && matchesSearch;
+    return matchesSearch;
   });
 
   useEffect(() => {
@@ -555,18 +553,6 @@ function App() {
         </div>
       </header>
 
-      {/* Categories - Google TV Style */}
-      <nav className="categories-nav">
-        {categories.map(category => (
-          <button
-            key={category.id}
-            className={`category-tab ${activeCategory === category.id ? 'active' : ''}`}
-            onClick={() => setActiveCategory(category.id)}
-          >
-            {category.name}
-          </button>
-        ))}
-      </nav>
 
       {/* Channels Grid */}
       <main className="channels-container">
