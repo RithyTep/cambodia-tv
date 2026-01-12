@@ -1,0 +1,20 @@
+{
+  "name": "Cambodia TV",
+  "short_name": "Cambodia TV",
+  "description": "Watch Cambodian TV channels live",
+  "theme_color": "#0a0a0f",
+  "background_color": "#0a0a0f",
+  "display": "standalone",
+  "orientation": "landscape",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "/icons/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "categories": ["entertainment", "lifestyle"]
+}

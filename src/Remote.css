@@ -1,0 +1,230 @@
+/* Remote Control Styles */
+.remote-container {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #1a1a2e 0%, #0f0f1a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.remote-device {
+  width: 100%;
+  max-width: 320px;
+  background: linear-gradient(145deg, #252540 0%, #1a1a30 100%);
+  border-radius: 40px;
+  padding: 30px 20px 40px;
+  box-shadow:
+    0 25px 50px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.remote-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.remote-header h1 {
+  color: #fff;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.connection-status {
+  font-size: 12px;
+  color: #888;
+  padding: 4px 12px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.connection-status.connected {
+  color: #4ade80;
+  background: rgba(74, 222, 128, 0.1);
+}
+
+.remote-note {
+  text-align: center;
+  font-size: 12px;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* D-Pad */
+.dpad-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 8px;
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 30px;
+}
+
+.dpad-btn {
+  background: linear-gradient(145deg, #2a2a45 0%, #1e1e35 100%);
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.dpad-btn:active {
+  transform: scale(0.95);
+  background: linear-gradient(145deg, #1e1e35 0%, #2a2a45 100%);
+}
+
+.dpad-up {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.dpad-left {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.dpad-center {
+  grid-column: 2;
+  grid-row: 2;
+  background: linear-gradient(145deg, #3b82f6 0%, #2563eb 100%);
+  font-weight: 600;
+  font-size: 18px;
+  box-shadow:
+    0 4px 12px rgba(59, 130, 246, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.dpad-center:active {
+  background: linear-gradient(145deg, #2563eb 0%, #3b82f6 100%);
+}
+
+.dpad-right {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.dpad-down {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+/* Action Buttons */
+.action-buttons {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.action-btn {
+  flex: 1;
+  max-width: 120px;
+  padding: 14px 16px;
+  background: linear-gradient(145deg, #2a2a45 0%, #1e1e35 100%);
+  border: none;
+  border-radius: 12px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.action-btn:active {
+  transform: scale(0.95);
+}
+
+.back-btn {
+  color: #f97316;
+}
+
+/* Media Controls */
+.media-controls {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+}
+
+.media-btn {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(145deg, #2a2a45 0%, #1e1e35 100%);
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow:
+    0 4px 8px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.media-btn:active {
+  transform: scale(0.95);
+}
+
+.play-btn {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(145deg, #e2101a 0%, #b30d15 100%);
+  box-shadow:
+    0 4px 12px rgba(226, 16, 26, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.play-btn:active {
+  background: linear-gradient(145deg, #b30d15 0%, #e2101a 100%);
+}
+
+/* Command Feedback */
+.command-feedback {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.8);
+  color: #fff;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  pointer-events: none;
+  animation: fadeInOut 0.5s ease;
+}
+
+@keyframes fadeInOut {
+  0% { opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+  30% { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  70% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* Touch optimization */
+@media (hover: none) {
+  .dpad-btn:hover,
+  .action-btn:hover,
+  .media-btn:hover {
+    background: inherit;
+  }
+}
