@@ -404,6 +404,11 @@ function App() {
       try {
         const data = JSON.parse(event.data);
 
+        // Handle direct navigation from remote
+        if (data.type === 'navigate' && typeof data.index === 'number') {
+          setFocusedIndex(data.index);
+        }
+
         if (data.type === 'command') {
           const cols = getGridColumns();
 
