@@ -5,19 +5,18 @@ import { Play, X, Volume2, VolumeX, Maximize, Minimize, Tv, Search, Loader2, Ale
 import { channels, categories, type Channel } from './channels';
 import './App.css';
 
-// Get proxied URL for HTTP streams when served over HTTPS
+// Get proxied URL for streams - proxy ALL external streams in production to avoid CORS
 const getStreamUrl = (url: string): string => {
+  // In production, proxy ALL external streams to avoid CORS issues
+  if (import.meta.env.PROD) {
+    return `${window.location.origin}/proxy?url=${encodeURIComponent(url)}`;
+  }
+
+  // In development, only proxy HTTP streams when on HTTPS page
   const isHttpsPage = window.location.protocol === 'https:';
   const isHttpStream = url.startsWith('http://');
-
-  // If HTTPS page trying to load HTTP stream, use proxy
   if (isHttpsPage && isHttpStream) {
-    // In production (Vercel), use /api/proxy; in dev use port 3002
-    const proxyPath = import.meta.env.PROD ? '/api/proxy' : '/proxy';
-    const proxyBase = import.meta.env.PROD
-      ? `${window.location.origin}${proxyPath}`
-      : `http://${window.location.hostname}:3002${proxyPath}`;
-    return `${proxyBase}?url=${encodeURIComponent(url)}`;
+    return `http://${window.location.hostname}:3000/proxy?url=${encodeURIComponent(url)}`;
   }
 
   return url;

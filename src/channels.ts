@@ -24,7 +24,7 @@ export const channels: Channel[] = [
   {
     id: 'eac-news',
     name: 'EAC News',
-    logo: 'https://static.wikia.nocookie.net/logopedia/images/b/bd/BTV_News.svg',
+    logo: 'https://cdn.brandfetch.io/idalrk11T-/w/400/h/400/theme/dark/icon.jpeg',
     category: 'news',
     streams: [
       'https://live-evg17.tv360.metfone.com.kh/LiveApp/streams/eacnews.m3u8',
@@ -45,7 +45,7 @@ export const channels: Channel[] = [
   {
     id: 'fresh-news',
     name: 'Fresh News',
-    logo: 'https://play-lh.googleusercontent.com/fife/ALs6j_HIbNRcCmV4Ac1B-3Ty_SgPw4-2EAu1k3H2DDL7FbQ7Y9gLEKXV-2_IQHP6TaAqIGJQfwYKSp2VaGQ4GHh-A_R_-Xvbh7pL0K4qwKYjVX4HdVHQsM4Hqv8nM8MnY6pXQlKH7XYeE8K5XuYw3qxs_7TPX9W7w=s96-c',
+    logo: 'https://yt3.googleusercontent.com/ytc/AIdro_lXRHXvNvJWJR0iP0TnKm3NxG4xYNrKZl0Bn5Ztd8d9Tw=s176-c-k-c0x00ffffff-no-rj',
     category: 'news',
     streams: [
       'http://streaming-android.freshnewsasia.tv:1935/live/ngrp:myStream_all/playlist.m3u8',
@@ -56,7 +56,7 @@ export const channels: Channel[] = [
   {
     id: 'moi-tv',
     name: 'MOI TV',
-    logo: 'https://upload.wikimedia.org/wikipedia/commons/8/83/Ministry_of_Information_%28Cambodia%29_Logo.png',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Ministry_of_Information_%28Cambodia%29_Logo.png/200px-Ministry_of_Information_%28Cambodia%29_Logo.png',
     category: 'news',
     streams: [
       'http://202.62.56.22:8080/hls/MOITV.m3u8',
@@ -76,7 +76,7 @@ export const channels: Channel[] = [
   {
     id: 'msj-tv',
     name: 'MSJ TV',
-    logo: 'https://static.wikia.nocookie.net/logopedia/images/6/67/CNC_Cambodia.svg',
+    logo: 'https://play-lh.googleusercontent.com/w9xL5bVPNTz9_oVNNe-HJnAJqKb6RchPONMnTpk03HRJYKYqwZ3dLZxTF8YSHgDGDA=w240-h480-rw',
     category: 'news',
     streams: [
       'https://live-ali7.tv360.metfone.com.kh/live/myStream/playlist.m3u8',
@@ -192,7 +192,7 @@ export const channels: Channel[] = [
   {
     id: 'ntv',
     name: 'NTV',
-    logo: 'https://static.wikia.nocookie.net/logopedia/images/b/b1/ETV_cambodia.png',
+    logo: 'https://img-evg4.tv360.metfone.com.kh/vtc-image/2024/11/18/11/1731904849389/c3f83093686f_480_270.jpg',
     category: 'entertainment',
     streams: [
       'http://43.252.18.195:5080/LiveApp/streams/ntvhd.m3u8',
@@ -212,7 +212,7 @@ export const channels: Channel[] = [
   {
     id: 'itv',
     name: 'iTV HD',
-    logo: 'https://static.wikia.nocookie.net/logopedia/images/b/b1/ETV_cambodia.png',
+    logo: 'https://img-evg4.tv360.metfone.com.kh/vtc-image/2024/11/18/11/1731904822166/84c05fd6a8fe_480_270.jpg',
     category: 'entertainment',
     streams: [
       'http://43.252.18.195:5080/live/streams/itv.khmeretv.m3u8',
@@ -222,7 +222,7 @@ export const channels: Channel[] = [
   {
     id: 'komsan-tv',
     name: 'Komsan TV',
-    logo: 'https://static.wikia.nocookie.net/logopedia/images/b/b1/MYTV_2008.png',
+    logo: 'https://img-evg4.tv360.metfone.com.kh/vtc-image/2024/11/18/11/1731904825932/e40e2c1eff16_480_270.jpg',
     category: 'entertainment',
     streams: [
       'http://tv.cootel.com.kh:8077/streams/d/Komsan/playlist.m3u8',
@@ -254,7 +254,7 @@ export const channels: Channel[] = [
   {
     id: 'town-tv',
     name: 'Town TV',
-    logo: 'https://static.wikia.nocookie.net/logopedia/images/b/b1/MYTV_2008.png',
+    logo: 'https://img-evg4.tv360.metfone.com.kh/vtc-image/2024/11/18/11/1731904787957/c312928b2c77_480_270.jpg',
     category: 'music',
     streams: [
       'https://live.kh.malimarcdn.com/live/towntv.stream/playlist.m3u8',
@@ -267,7 +267,7 @@ export const channels: Channel[] = [
   {
     id: 'wiki-tv',
     name: 'WIKI TV',
-    logo: 'https://static.wikia.nocookie.net/logopedia/images/6/67/CNC_Cambodia.svg',
+    logo: 'https://wikitv.asia/logo/logo_flat.png',
     category: 'lifestyle',
     streams: [
       'https://stream.wikitv.asia/live/ngrp:myStream_all/playlist.m3u8',
