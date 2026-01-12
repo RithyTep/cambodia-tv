@@ -165,6 +165,7 @@ export const channels: Channel[] = [
     logo: 'https://static.wikia.nocookie.net/logopedia/images/d/df/CTN_2003.png',
     category: 'entertainment',
     streams: [
+      'http://43.245.34.2:9000/live/CTNKH.m3u8',
       'http://43.252.18.195:5080/live/streams/ctntv.m3u8',
     ],
     description: 'Cambodian Television Network'
@@ -205,6 +206,8 @@ export const channels: Channel[] = [
     logo: 'https://static.wikia.nocookie.net/logopedia/images/b/b1/MYTV_2008.png',
     category: 'entertainment',
     streams: [
+      'http://43.245.34.2:9000/live/MyTVKH.m3u8',
+      'http://live.happywatch99.com/livehd11/90ecf35382a7597e553200692c3fc384.sdp/playlist.m3u8',
       'http://43.252.18.195:5080/live/streams/mytv.m3u8',
     ],
     description: 'My TV Entertainment'
